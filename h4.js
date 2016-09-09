@@ -1,23 +1,48 @@
-var question = document.getElementById('question').value;
+/*var question = document.getElementById('question').value;*/
 var btn;
-var reponse = document.getElementsByClassName('reponse');
 var img = document.getElementsByTagName('img');
 
-function valider() {
-    reponse = document.getElementsByClassName('reponse');
-    reponse[0].style.display = "none";
-    reponse[1].style.display = "none";
-//
-    var question = document.getElementById('question').value;
-    if (question.toLowerCase() === 'blanc' || question.toLowerCase() === 'blanche') {
-        //j'affiche le span bravo
-        reponse = document.getElementsByTagName('span')[0].style.display = "block";
-    } else if (question.toLowerCase() !== 'blanc' || question.toLowerCase() !== 'blanche') {
-        //j'affiche le span perdu
-        reponse = document.getElementsByTagName('span')[1].style.display = "block";
-        reponse = document.getElementsByTagName('span')[1].style.color = "darkred";
+var indexQuestion = 0;
+var listeQuestions = [{
+  texte : "De quelle couleur est le cheval blanc d'Henri IV ?",
+  reponse : "blanche"
+},
+  {
+  texte : "Combien y a-t-il de nains avec Blanche-Neige ? (chiffre)",
+  reponse : "7"
+}];
 
-    }
-    question = document.getElementById('question').value = "";
-    return reponse;
+function poseQuestion(){
+  var questionEnCours = listeQuestions[ indexQuestion ];
+
+  document.getElementById('question').innerText = questionEnCours.texte;
+  document.getElementById('reponse').value = "";
+
 }
+
+function valider() {
+
+    var reponse = document.getElementById('reponse').value;
+    console.log(reponse);
+    var reponseJuste = listeQuestions[ indexQuestion ].reponse;
+    if (reponse.toLowerCase() == reponseJuste.toLowerCase()) {
+        indexQuestion += 1;
+        if( listeQuestions.length > indexQuestion )
+        {
+          //j'affiche le span bravo
+          reponse = document.getElementsByTagName('span')[0].style.display = "block";
+          poseQuestion();
+        }
+         else {
+        //j'affiche le span bravo terminé
+          reponse = document.getElementsByTagName('span')[2].style.display = "block";
+        }
+    }
+    else {
+
+      //j'affiche le span perdu
+      reponse = document.getElementsByTagName('span')[1].style.display = "block";
+      reponse = document.getElementsByTagName('span')[1].style.color = "darkred";
+    }
+  }
+  // TODO function refresh() pour l'affichage des span
