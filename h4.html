@@ -7,21 +7,29 @@
     <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
 </head>
 
-<body>
+<body onload="poseQuestion()">
     <form>
 
-        <h1>QUELLE EST LA COULEUR DU CHEVAL BLANC D’HENRI IV ?</h1>
+        <h1 id="question"></h1>
         <div>
-            <input type="texte" name="question" placeholder=" Tentez votre chance ..." id="question">
+            <input type="texte" name="question" placeholder=" Tentez votre chance ..." id="reponse">
             <input type="button" name="" value="Valider" id="btn" onclick=" valider()">
             <div class="">
               <span class="reponse">Bravo !</span>
               <span class="reponse">Perdu !</span>
+              <span class="reponse">Bravo !<br>Terminé</span>
+
             </div>
         </div>
+        <div class="henri">
+          <img src="Henri-IV.jpg" alt="Jean-Baptiste Mauzaisse - Portrait équestre de Henri IV" />
+          <a href="http://art.rmngp.fr/fr/library/artworks/jean-baptiste-mauzaisse_portrait-equestre-de-henri-iv"><h6>Jean-Baptiste Mauzaisse - Portrait équestre de Henri IV</h6></a>
+        </div>
+        <div class="nains">
+          <img src="bn-7-nains.jpg" style="width: 356px;" alt="Blanche neige et les 7 nains" />
+          <a href="https://fr.wikipedia.org/wiki/Blanche-Neige"><h6>Personnages tirés du dessin animé Disney</h6></a>
+        </div>
 
-        <img src="Henri-IV.jpg" alt="Jean-Baptiste Mauzaisse - Portrait équestre de Henri IV" />
-        <a href="http://art.rmngp.fr/fr/library/artworks/jean-baptiste-mauzaisse_portrait-equestre-de-henri-iv"><h6>Jean-Baptiste Mauzaisse - Portrait équestre de Henri IV</h6></a>
 
     </form>
     <script type="text/javascript" src="h4.js" media="screen"></script>
