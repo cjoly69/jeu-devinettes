@@ -39,7 +39,7 @@ function valider() {
         //j'affiche le span perdu
         reponse = document.getElementsByTagName('span')[1].style.display = "block";
         reponse = document.getElementsByTagName('span')[1].style.color = "darkred";
-    }
+    }return poseQuestion();
 }
 // function refresh() pour nettoyer les span
 function refresh() {
